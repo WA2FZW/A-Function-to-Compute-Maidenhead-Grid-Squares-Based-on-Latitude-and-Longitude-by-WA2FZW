@@ -23,8 +23,8 @@
 void GetGridSquare ( double _lat, double _long, char* buff )
 {
 
-double	tempNumber;									// Used in the intermediate computations
-int		index;										// Index to the above arrays
+double	tempNumber;								// Used in the intermediate computations
+int	index;									// Determines character to display
 
 /*
  *	First compute the first 2 characters:
