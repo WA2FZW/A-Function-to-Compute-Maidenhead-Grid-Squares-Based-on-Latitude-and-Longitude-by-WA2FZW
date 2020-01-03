@@ -23,52 +23,52 @@
 void GetGridSquare ( double _lat, double _long, char* buff )
 {
 
-double	tempNumber;								// Used in the intermediate computations
-int	index;									// Determines character to display
+double	tempNumber;					// Used in the intermediate computations
+int	index;						// Determines character to display
 
 /*
  *	First compute the first 2 characters:
  */
 
-		_long += 180;								// 360 degrees starting from middle of the Pacific
-		tempNumber = _long / 20;					// Each major square is 20 degrees wide
-		index = (int) tempNumber;					// The index to the "upperCase" array
-		buff[0] = index + 'A';						// Set first character
-		_long = _long - ( index * 20 );				// Remainder for step 2
+	_long += 180;					// 360 degrees starting from middle of the Pacific
+	tempNumber = _long / 20;			// Each major square is 20 degrees wide
+	index = (int) tempNumber;			// The index to the "upperCase" array
+	buff[0] = index + 'A';				// Set first character
+	_long = _long - ( index * 20 );			// Remainder for step 2
 
-		_lat += 90;									// 180 degrees starting from the South pole
-		tempNumber = _lat / 10;						// Each major square is 10 degrees high
-		index = (int) tempNumber;					// The index to the "upperCase" array
-		buff[1] = index + 'A';						// Set second character
-		_lat = _lat - ( index * 10 );				// Remainder for step 2
+	_lat += 90;					// 180 degrees starting from the South pole
+	tempNumber = _lat / 10;				// Each major square is 10 degrees high
+	index = (int) tempNumber;			// The index to the "upperCase" array
+	buff[1] = index + 'A';				// Set second character
+	_lat = _lat - ( index * 10 );			// Remainder for step 2
 
 
 /*
  *	Now the 2nd two digits:
  */
 
-		tempNumber = _long / 2;						// Remainder from step 1 divided by 2
-		index = (int) tempNumber;					// The index to the "digits" array
-		buff[2] = index + '0';						// Set third character
-		_long = _long - ( index * 2 );				// Remainder for step 3
+	tempNumber = _long / 2;				// Remainder from step 1 divided by 2
+	index = (int) tempNumber;			// The index to the "digits" array
+	buff[2] = index + '0';				// Set third character
+	_long = _long - ( index * 2 );			// Remainder for step 3
 
-		tempNumber = _lat;							// Remainder from step 1 divided by 1
-		index = (int) tempNumber;					// The index to the "digits" array
-		buff[3] = index + '0';						// Set fourth character
-		_lat = _lat - index;						// Remainder for step 3
+	tempNumber = _lat;				// Remainder from step 1 divided by 1
+	index = (int) tempNumber;			// The index to the "digits" array
+	buff[3] = index + '0';				// Set fourth character
+	_lat = _lat - index;				// Remainder for step 3
 
 
 /*
  *	Now the third two characters:
  */
 
-		tempNumber = _long / 0.083333;				// Remainder from step 2 divided by 0.083333
-		index = (int) tempNumber;					// The index to the "lowerCase" array
-		buff[4] = index + 'a';						// Set fifth character
+	tempNumber = _long / 0.083333;			// Remainder from step 2 divided by 0.083333
+	index = (int) tempNumber;			// The index to the "lowerCase" array
+	buff[4] = index + 'a';				// Set fifth character
 
-		tempNumber = _lat / 0.0416665;				// Remainder from step 2 divided by 0.0416665
-		index = (int) tempNumber;					// The index to the "digits" array
-		buff[5] = index + 'a';						// Set fifth character
+	tempNumber = _lat / 0.0416665;			// Remainder from step 2 divided by 0.0416665
+	index = (int) tempNumber;			// The index to the "digits" array
+	buff[5] = index + 'a';				// Set fifth character
 
-		buff[6] = '\0';								// Null terminator
+	buff[6] = '\0';					// Null terminator
 }
