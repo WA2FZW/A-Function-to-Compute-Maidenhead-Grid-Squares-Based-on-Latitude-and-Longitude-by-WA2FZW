@@ -15,7 +15,7 @@ and South latitudes are negative numbers. They are specified as "double" types a
 that is the type used by the TinyGPS++ library that I use with this.
 
 The buffer in which the grid square designation is constructed must have space for
-at least 7 characters (6 for the grid aquare plus a null terminator).
+at least 7 characters (6 for the grid square string plus a null terminator).
 	
 A great explanation of the math can be found here:
 
